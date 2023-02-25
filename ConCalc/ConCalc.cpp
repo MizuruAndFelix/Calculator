@@ -104,7 +104,7 @@ int main()
 
     while (N != 0)
     {
-        Calculator S();
+        Calculator S(0, 0);
         cout << "Введите num1: ";
         cin >> S.num1;
         if (S.num1 == 0)
