@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <locale.h>
 #include <windows.h>
 #include <string>
@@ -13,47 +13,47 @@ public:
 
     Calculator(double num1, double num2);
 
-    double Сложение();
-    double Вычитание1_2();
-    double Вычитание2_1();
-    double Умножение();
-    double Деление1_2();
-    double Деление2_1();
-    bool Установить1(double num1);
-    bool Установить2(double num2);
+    double Summ();
+    double Diff1_2();
+    double Diff2_1();
+    double Mult();
+    double Div1_2();
+    double Div2_1();
+    bool Set1(double num1);
+    bool Set2(double num2);
 };
 
-double Calculator::Сложение()
+double Calculator::Summ()
 {
     cout << num1 << " + " << num2 << " = " << num1 + num2 << endl;
     return num1 + num2;
 }
 
-double Calculator::Вычитание1_2()
+double Calculator::Diff1_2()
 {
     cout << num1 << " - " << num2 << " = " << num1 - num2 << endl;
     return num1 - num2;
 }
 
-double Calculator::Вычитание2_1()
+double Calculator::Diff2_1()
 {
     cout << num2 << " - " << num1 << " = " << num2 - num1 << endl;
     return num2 - num1;
 }
 
-double Calculator::Умножение()
+double Calculator::Mult()
 {
     cout << num1 << " * " << num2 << " = " << num1 * num2 << endl;
     return num1 * num2;
 }
 
-double Calculator::Деление1_2()
+double Calculator::Div1_2()
 {
     cout << num1 << " / " << num2 << " = " << num1 / num2 << endl;
     return num1 / num2;
 }
 
-double Calculator::Деление2_1()
+double Calculator::Div2_1()
 {
     cout << num2 << " / " << num1 << " = " << num2 / num1 << endl;
     return num2 / num1;
@@ -62,7 +62,7 @@ double Calculator::Деление2_1()
 
 
 
-bool Calculator::Установить1(double num1)
+bool Calculator::Set1(double num1)
 {
     if (num1 != 0)
     {
@@ -75,7 +75,7 @@ bool Calculator::Установить1(double num1)
     }
 }
 
-bool Calculator::Установить2(double num2)
+bool Calculator::Set2(double num2)
 {
     if (num1 != 0)
     {
@@ -113,27 +113,30 @@ int main()
             continue;
         }
 
-        cout << "Введите num2: ";
-        cin >> S.num2;
-        if (S.num2 == 0)
+        while (N != 0)
         {
-            cout << "Неверный ввод!\n";
-            continue;
+            cout << "Введите num2: ";
+            cin >> S.num2;
+            if (S.num2 == 0)
+            {
+                cout << "Неверный ввод!\n";
+                continue;
+            }
+
+
+
+
+
+            S.Summ();
+            S.Diff1_2();
+            S.Diff2_1();
+            S.Div1_2();
+            S.Div2_1();
+            S.Mult();
+
+
+
         }
-
-
-
-
-
-        S.Сложение();
-        S.Вычитание1_2();
-        S.Вычитание2_1();
-        S.Деление1_2();
-        S.Деление2_1();
-        S.Умножение();
-
-
-
     }
 }
 
