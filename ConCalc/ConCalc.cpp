@@ -13,14 +13,16 @@ public:
 
     Calculator(double num1, double num2);
 
+    bool Set1(double num1);
+    bool Set2(double num2);
+
     double Summ();
     double Diff1_2();
     double Diff2_1();
     double Mult();
     double Div1_2();
     double Div2_1();
-    bool Set1(double num1);
-    bool Set2(double num2);
+
 };
 
 double Calculator::Summ()
@@ -66,8 +68,11 @@ bool Calculator::Set1(double num1)
 {
     if (num1 != 0)
     {
+        cout << "Введите num1 ";
+        cin >> num1;
         this->num1 = num1;
         return true;
+        
     }
     else
     {
@@ -79,6 +84,8 @@ bool Calculator::Set2(double num2)
 {
     if (num1 != 0)
     {
+        cout << "Введите num2 ";
+        cin >> num2;
         this->num2 = num2;
         return true;
     }
@@ -104,28 +111,23 @@ int main()
 
     while (N != 0)
     {
-        Calculator S(0, 0);
-        cout << "Введите num1: ";
-        cin >> S.num1;
+        Calculator S(1, 1);
+        
+        S.Set1(1);
         if (S.num1 == 0)
         {
-            cout << "Неверный ввод!\n";
+            cout << "\nневерный ввод!\n";
             continue;
         }
-
+        
         while (N != 0)
         {
-            cout << "Введите num2: ";
-            cin >> S.num2;
+            S.Set2(1);
             if (S.num2 == 0)
             {
-                cout << "Неверный ввод!\n";
+                cout << "\nневерный ввод!\n";
                 continue;
             }
-
-
-
-
 
             S.Summ();
             S.Diff1_2();
@@ -133,9 +135,7 @@ int main()
             S.Div1_2();
             S.Div2_1();
             S.Mult();
-
-
-
+            break;
         }
     }
 }
