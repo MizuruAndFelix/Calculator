@@ -23,6 +23,22 @@ public:
     double Div1_2();
     double Div2_1();
 
+    void SetNum1(int valueNum1)
+    {
+        num1 = valueNum1;
+    }
+    int GetNum1()
+    {
+        return num1;
+    }
+    void SetNum2(int valueNum2)
+    {
+        num2 = valueNum2;
+    }
+    int GetNum2()
+    {
+        return num2;
+    }
 };
 
 double Calculator::Summ()
@@ -72,7 +88,7 @@ bool Calculator::Set1(double num1)
         cin >> num1;
         this->num1 = num1;
         return true;
-        
+
     }
     else
     {
@@ -108,22 +124,22 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     int N = 1;
+    Calculator S(1, 1);
 
     while (N != 0)
     {
-        Calculator S(1, 1);
-        
+
         S.Set1(1);
-        if (S.num1 == 0)
+        if (S.GetNum1() == 0)
         {
             cout << "\nневерный ввод!\n";
             continue;
         }
-        
+
         while (N != 0)
         {
             S.Set2(1);
-            if (S.num2 == 0)
+            if (S.GetNum2() == 0)
             {
                 cout << "\nневерный ввод!\n";
                 continue;
@@ -139,5 +155,3 @@ int main()
         }
     }
 }
-
-
