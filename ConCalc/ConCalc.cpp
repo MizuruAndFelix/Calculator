@@ -13,8 +13,8 @@ public:
 
     Calculator(double num1, double num2);
 
-    bool Set1(double num1);
-    bool Set2(double num2);
+    bool SetNum1(double num1);
+    bool SetNum2(double num2);
 
     double Summ();
     double Diff1_2();
@@ -22,25 +22,8 @@ public:
     double Mult();
     double Div1_2();
     double Div2_1();
-
-    void SetNum1(int valueNum1)
-    {
-        num1 = valueNum1;
-    }
-    int GetNum1()
-    {
-        return num1;
-    }
-    void SetNum2(int valueNum2)
-    {
-        num2 = valueNum2;
-    }
-    int GetNum2()
-    {
-        return num2;
-    }
 };
-
+//функции
 double Calculator::Summ()
 {
     cout << num1 << " + " << num2 << " = " << num1 + num2 << endl;
@@ -80,15 +63,15 @@ double Calculator::Div2_1()
 
 
 
-bool Calculator::Set1(double num1)
+bool Calculator::SetNum1(double num1)
 {
+    cout << "Введите num1 ";
+    cin >> num1;
+    this->num1 = num1;
+
     if (num1 != 0)
     {
-        cout << "Введите num1 ";
-        cin >> num1;
-        this->num1 = num1;
         return true;
-
     }
     else
     {
@@ -96,13 +79,14 @@ bool Calculator::Set1(double num1)
     }
 }
 
-bool Calculator::Set2(double num2)
+bool Calculator::SetNum2(double num2)
 {
-    if (num1 != 0)
+    cout << "Введите num2 ";
+    cin >> num2;
+    this->num2 = num2;
+
+    if (num2 != 0)
     {
-        cout << "Введите num2 ";
-        cin >> num2;
-        this->num2 = num2;
         return true;
     }
     else
@@ -128,9 +112,7 @@ int main()
 
     while (N != 0)
     {
-
-        S.Set1(1);
-        if (S.GetNum1() == 0)
+        if (S.SetNum1(0) == false)
         {
             cout << "\nневерный ввод!\n";
             continue;
@@ -138,8 +120,7 @@ int main()
 
         while (N != 0)
         {
-            S.Set2(1);
-            if (S.GetNum2() == 0)
+            if (S.SetNum2(0) == false)
             {
                 cout << "\nневерный ввод!\n";
                 continue;
