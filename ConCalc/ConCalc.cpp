@@ -13,8 +13,8 @@ public:
 
     Calculator(double num1, double num2);
 
-    bool SetNum1(double num1);
-    bool SetNum2(double num2);
+    bool SetNum1();
+    bool SetNum2();
 
     double Summ();
     double Diff1_2();
@@ -22,6 +22,15 @@ public:
     double Mult();
     double Div1_2();
     double Div2_1();
+
+    void Num1Set(int valueNum1)
+    {
+        num1 = valueNum1;
+    }
+    void Num2Set(int valueNum2)
+    {
+        num2 = valueNum2;
+    }
 };
 //функции
 double Calculator::Summ()
@@ -63,12 +72,8 @@ double Calculator::Div2_1()
 
 
 
-bool Calculator::SetNum1(double num1)
+bool Calculator::SetNum1()
 {
-    cout << "Введите num1 ";
-    cin >> num1;
-    this->num1 = num1;
-
     if (num1 != 0)
     {
         return true;
@@ -79,12 +84,8 @@ bool Calculator::SetNum1(double num1)
     }
 }
 
-bool Calculator::SetNum2(double num2)
+bool Calculator::SetNum2()
 {
-    cout << "Введите num2 ";
-    cin >> num2;
-    this->num2 = num2;
-
     if (num2 != 0)
     {
         return true;
@@ -108,31 +109,46 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     int N = 1;
+    int t = 0;
     Calculator S(1, 1);
 
     while (N != 0)
-    {
-        if (S.SetNum1(0) == false)
+    {      
+        cout << "Введите num1 "; //num1
+        cin >> t;
+        S.Num1Set(t);
+
+
+        if (S.SetNum1() == false)
         {
             cout << "\nневерный ввод!\n";
             continue;
         }
-
-        while (N != 0)
-        {
-            if (S.SetNum2(0) == false)
+        else
+        {      
+            while (N != 0)
             {
-                cout << "\nневерный ввод!\n";
-                continue;
-            }
+                cout << "Введите num2 ";
+                cin >> t;
+                S.Num2Set(t);
 
-            S.Summ();
-            S.Diff1_2();
-            S.Diff2_1();
-            S.Div1_2();
-            S.Div2_1();
-            S.Mult();
-            break;
+                if (S.SetNum2() == false)
+                {
+                    cout << "\nневерный ввод!\n";
+                    continue;
+                }
+                else
+                {
+                    S.Summ();
+                    S.Diff1_2();
+                    S.Diff2_1();
+                    S.Div1_2();
+                    S.Div2_1();
+                    S.Mult();
+                    
+                    break;
+                }
+            }
         }
     }
 }
