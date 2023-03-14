@@ -13,8 +13,8 @@ public:
 
     Calculator(double num1, double num2);
 
-    bool SetNum1();
-    bool SetNum2();
+    bool SetNum1(double num1);
+    bool SetNum2(double num2);
 
     double Summ();
     double Diff1_2();
@@ -23,14 +23,6 @@ public:
     double Div1_2();
     double Div2_1();
 
-    void Num1Set(int valueNum1)
-    {
-        num1 = valueNum1;
-    }
-    void Num2Set(int valueNum2)
-    {
-        num2 = valueNum2;
-    }
 };
 //функции
 double Calculator::Summ()
@@ -72,10 +64,11 @@ double Calculator::Div2_1()
 
 
 
-bool Calculator::SetNum1()
+bool Calculator::SetNum1(double num1)
 {
     if (num1 != 0)
     {
+        this->num1 = num1;
         return true;
     }
     else
@@ -84,10 +77,11 @@ bool Calculator::SetNum1()
     }
 }
 
-bool Calculator::SetNum2()
+bool Calculator::SetNum2(double num2)
 {
     if (num2 != 0)
     {
+        this->num2 = num2;
         return true;
     }
     else
@@ -108,31 +102,27 @@ int main()
     setlocale(LC_ALL, "");
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    int N = 1;
-    int t = 0;
+    int num = 0;
     Calculator S(1, 1);
 
-    while (N != 0)
+    while (true)
     {      
         cout << "Введите num1 "; //num1
-        cin >> t;
-        S.Num1Set(t);
+        cin >> num;
 
-
-        if (S.SetNum1() == false)
+        if (S.SetNum1(num) == false)
         {
             cout << "\nневерный ввод!\n";
             continue;
         }
         else
         {      
-            while (N != 0)
+            while (true)
             {
                 cout << "Введите num2 ";
-                cin >> t;
-                S.Num2Set(t);
+                cin >> num;
 
-                if (S.SetNum2() == false)
+                if (S.SetNum2(num) == false)
                 {
                     cout << "\nневерный ввод!\n";
                     continue;
